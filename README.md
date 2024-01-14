@@ -31,3 +31,31 @@ imports: [
 ```html
 <input [(ngModel)]="pensamento.conteudo" />
 ```
+
+# Router
+```html
+// espaço reservado que angular vai preencher automaticamente
+<router-outlet></router-outlet>
+```
+- Configurar rotas -> app-routing.module.ts
+```ts
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'pensamento',
+    // default prefix
+    // url lida esquerda pra direta
+    // prefix considere somente localhost:4200 e restante ignroado
+    // full falar pra considerar toda url
+    pathMatch: 'full'
+  },
+  {
+    path: 'pensamento/criar',
+    component: CriarPensamentoComponent
+  },
+  {
+    path: 'pensamento',
+    component: ListarPensamentoComponent
+  },
+];
+```
