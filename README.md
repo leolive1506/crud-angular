@@ -59,3 +59,9 @@ const routes: Routes = [
   },
 ];
 ```
+
+# Comunicação entre componentes
+- informaar qeu componente filho vai receber valor de componente pai
+```ts
+@Input() pensamento = {}
+```
