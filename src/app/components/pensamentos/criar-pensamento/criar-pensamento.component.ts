@@ -30,7 +30,8 @@ export class CriarPensamentoComponent implements OnInit {
       ])],
       modelo: ['modelo1', [
         Validators.required
-      ]]
+      ]],
+      favorito: [false]
     })
   }
 
