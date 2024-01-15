@@ -145,3 +145,27 @@ ngOnInit(): void {
 ```
 
 ## Validações
+- validar dados
+```ts
+ngOnInit(): void {
+  this.formulario = this.formBuilder.group({
+    conteudo: ['', Validators.compose([
+      Validators.required,
+      Validators.pattern(/(.|\s)*\S(.|\s)*/),
+    ])],
+    autoria: ['', [
+      Validators.required,
+      Validators.minLength(3)
+    ]],
+    modelo: ['', [
+      Validators.required
+    ]]
+  })
+}
+```
+- mostrar erros para usuário somente se usuário clicar sobre input
+```html
+<div *ngIf="formulario.get('conteudo')?.errors && formulario.get('conteudo')?.touched">
+  Pensamento é obrigatório!
+</div>
+```
