@@ -105,3 +105,7 @@ ngOnInit(): void {
   )
 }
 ```
+
+# Formulários
+- Orientado a templates
+- Orientado a dados (data drive) ou formulários reativos
