@@ -13,12 +13,16 @@ export class PensamentoService {
 
   private readonly API = 'http://localhost:3000/pensamentos'
 
-  listar(pagina: number): Observable<Pensamento[]> {
+  listar(pagina: number, filtro: string): Observable<Pensamento[]> {
     // `${this.API}?_page=${pagina}&_limit=${itensPorPagina}`
     const itensPorPagina = 2
     let params = new HttpParams() // inclui parametros serializados
       .set("_page", pagina) // substituir valor
       .set("_limit", itensPorPagina)
+
+    if (filtro.trim().length > 2) {
+      params = params.set("q", filtro);
+    }
 
     return this.http.get<Pensamento[]>(this.API, { params })
   }
