@@ -59,6 +59,19 @@ const routes: Routes = [
   },
 ];
 ```
+- redirecionar
+```ts
+import { Router } from '@angular/router';
+constructor(
+    private service: PensamentoService,
+    private router: Router
+) {}
+criarPensamento() {
+  this.service.criar(this.pensamento).subscribe(() => {
+    this.router.navigate(['/pensamento'])
+  })
+}
+```
 
 # Comunicação entre componentes
 - informaar qeu componente filho vai receber valor de componente pai

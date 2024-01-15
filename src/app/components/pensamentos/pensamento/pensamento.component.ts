@@ -14,9 +14,11 @@ export class PensamentoComponent implements OnInit {
     modelo: 'modelo3'
   }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    console.log(this.pensamento.id)
   }
 
   larguraPensamento(): string {
