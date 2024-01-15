@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Pensamento } from './pensamento';
 import { Observable } from 'rxjs';
 // classe injetavel (utilizada em outros componentes / classes por injeção de depencia)
@@ -13,8 +13,14 @@ export class PensamentoService {
 
   private readonly API = 'http://localhost:3000/pensamentos'
 
-  listar(): Observable<Pensamento[]> {
-    return this.http.get<Pensamento[]>(this.API)
+  listar(pagina: number): Observable<Pensamento[]> {
+    // `${this.API}?_page=${pagina}&_limit=${itensPorPagina}`
+    const itensPorPagina = 2
+    let params = new HttpParams() // inclui parametros serializados
+      .set("_page", pagina) // substituir valor
+      .set("_limit", itensPorPagina)
+
+    return this.http.get<Pensamento[]>(this.API, { params })
   }
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
