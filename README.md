@@ -41,6 +41,7 @@ Explorado conceitos bases do angular, tais como:
 - ngOnInit()
 - Observables
 - Estrutura de pastas angular
+- Formulários reativos (ReactiveFormsModule)
 
 ## Links
 - [Explicação de conceitos](https://github.com/leolive1506/crud-angular/blob/main/conceitos.md)

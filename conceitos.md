@@ -109,3 +109,39 @@ ngOnInit(): void {
 # Formulários
 - Orientado a templates
 - Orientado a dados (data drive) ou formulários reativos
+- Na tag **<form>** do html
+  - no app module importar ReactiveFormsModule
+  - é necessário fazer um property binding por meio da diretiva formGroup e atribuir a ela o valor da propriedade formulario, criada na classe typescript
+  - É necessário incluir em cada input a propriedade formControlName, com o nome declarado na classe.
+
+```ts
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+formulario: FormGroup
+constructor(
+  private service: PensamentoService,
+  private router: Router,
+  private formBuilder: FormBuilder
+) {}
+
+ngOnInit(): void {
+  this.formulario = this.formBuilder.group({
+    conteudo: ['Formulário reativo'],
+    autoria: ['Angular'],
+    modelo: ['modelo1']
+  })
+}
+```
+```html
+<form [formGroup]="formulario">
+<input formControlName="conteudo" />>
+<input formControlName="autoria" />
+<input formControlName="modelo" />
+```
+
+- Acessar o valor
+```html
+<p>{{ formulario.get('conteudo')?.value }}</p>
+```
+
+## Validações
