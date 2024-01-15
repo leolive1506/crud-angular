@@ -65,3 +65,30 @@ const routes: Routes = [
 ```ts
 @Input() pensamento = {}
 ```
+
+# Service
+- contem toda logica e comunicação com servidor
+
+## Injectable
+- classe injetavel 
+  - utilizada em outros componentes / classes por injeção de depencia
+
+# ngOnInit()
+- executar algo assimq eu componente for carregado
+
+# Observables
+- Observable -> Observer
+  - Observer fica observando o observable até receber uma notificação
+  - funciona de forma semelhante a Promise
+    - so que podem emitir dados continuos (várias vezes durante a existência)
+      - vem da biblioteca RXJS, usada pelo angular
+- É o Retorno de um HttCliente
+  - para informar que tem interesse nos dados é preciso usar o metodo subscribe 
+    - semalhante a se inscrever em um canal no youtube se quiser receber as notificações, informando que tem interesse nos dados assim que houver alguma mudança
+```ts
+ngOnInit(): void {
+  this.service.listar().subscribe(
+    (pensamentos) => this.listaPensamentos = pensamentos
+  )
+}
+```
