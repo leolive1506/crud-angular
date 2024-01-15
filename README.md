@@ -1,107 +1,47 @@
-# Property binding
-- transmite dados para template (html)
-- usando {{  }} chama-se interpolação
-- ocorre do componente para template
-- sintaxe
-```html
-<input [value]="variavel.valor" />
-<p>{{ variavel.valor }}</p>
-```
+# 🚀 Memoteca app
+Um aplicativo desenvolvido em angular para guardar seu trechos de músicas, pensamentos e suas melhores ideias
 
-# Event binding
-- associação evento angular
-- ocorre do template para componente
-```html
-<button (click)="funcaoChamada()">Click</button>
-```
 
-# Two-way data binding
-- Property binding e Event binding a transmissão de dados ocorre somente de uma forma
-  - ou do componente para template (property binding)
-  - ou do template para componetne (event binding)
-- Two-way data binding é uma forma de enviar e receber dados simultaneamente 
-  - permitindo a atualização em tempo real do dado na tela
-```ts
-// app module atualizar import
-imports: [
-    FormsModule
-],
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardolopessantana/)
 
-```
-```html
-<input [(ngModel)]="pensamento.conteudo" />
-```
+## 🛠 Stack utilizada
 
-# Router
-```html
-// espaço reservado que angular vai preencher automaticamente
-<router-outlet></router-outlet>
-```
-- Configurar rotas -> app-routing.module.ts
-```ts
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'pensamento',
-    // default prefix
-    // url lida esquerda pra direta
-    // prefix considere somente localhost:4200 e restante ignroado
-    // full falar pra considerar toda url
-    pathMatch: 'full'
-  },
-  {
-    path: 'pensamento/criar',
-    component: CriarPensamentoComponent
-  },
-  {
-    path: 'pensamento',
-    component: ListarPensamentoComponent
-  },
-];
-```
-- redirecionar
-```ts
-import { Router } from '@angular/router';
-constructor(
-    private service: PensamentoService,
-    private router: Router
-) {}
-criarPensamento() {
-  this.service.criar(this.pensamento).subscribe(() => {
-    this.router.navigate(['/pensamento'])
-  })
-}
-```
+**Front-end:**
+<br>
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/git-100000?style=for-the-badge&logo=git&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+<br>
+**Back-end**: 
+- Json server
 
-# Comunicação entre componentes
-- informaar qeu componente filho vai receber valor de componente pai
-```ts
-@Input() pensamento = {}
-```
+## Demonstração
 
-# Service
-- contem toda logica e comunicação com servidor
+- [Curto video](https://www.loom.com/share/7a935636f1c94d7d9404bcfb4d874121)
 
-## Injectable
-- classe injetavel 
-  - utilizada em outros componentes / classes por injeção de depencia
+## Funcionalidades
 
-# ngOnInit()
-- executar algo assimq eu componente for carregado
+- CRUD Pensamento
 
-# Observables
-- Observable -> Observer
-  - Observer fica observando o observable até receber uma notificação
-  - funciona de forma semelhante a Promise
-    - so que podem emitir dados continuos (várias vezes durante a existência)
-      - vem da biblioteca RXJS, usada pelo angular
-- É o Retorno de um HttCliente
-  - para informar que tem interesse nos dados é preciso usar o metodo subscribe 
-    - semalhante a se inscrever em um canal no youtube se quiser receber as notificações, informando que tem interesse nos dados assim que houver alguma mudança
-```ts
-ngOnInit(): void {
-  this.service.listar().subscribe(
-    (pensamentos) => this.listaPensamentos = pensamentos
-  )
-}
-```
+## Aprendizados
+Explorado conceitos bases do angular, tais como: 
+- Comunicação entre componentes
+  - Property binding
+  - Event binding
+  - Two-way data binding
+- Router
+- Service
+  - Injectable
+- ngOnInit()
+- Observables
+- Estrutura de pastas angular
+
+## Links
+- [Explicação de conceitos](https://github.com/leolive1506/crud-angular/blob/main/conceitos.md)
+- [Explicação sobre estrutura de pastas](https://github.com/leolive1506/crud-angular/blob/main/estrutura-pastas.md)
