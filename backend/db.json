@@ -25,7 +25,7 @@
       "conteudo": "teste",
       "autoria": "teste",
       "modelo": "modelo1",
-      "favorito": false,
+      "favorito": true,
       "id": "SpOcinC"
     }
   ]
