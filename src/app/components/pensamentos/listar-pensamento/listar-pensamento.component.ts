@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pensamento } from '../pensamento';
 import { PensamentoService } from '../pensamento.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-pensamento',
@@ -15,7 +16,10 @@ export class ListarPensamentoComponent implements OnInit {
   favoritos: boolean = false;
   listaFavoritos: Pensamento[] = []
 
-  constructor(private service: PensamentoService) { }
+  constructor(
+    private service: PensamentoService,
+    private router: Router
+  ) { }
 
   // executar assim qeu componente for carregado
   ngOnInit(): void {
@@ -53,5 +57,15 @@ export class ListarPensamentoComponent implements OnInit {
         this.listaPensamentos = listaPensamentos
         this.listaFavoritos = listaPensamentos
       })
+  }
+
+  recarregarComponente() {
+    // por padrão roteador reutilza instancia de um componente quando navega pro mesmo componente sem ter navegado pra um componente diferente
+    this.favoritos = false
+    this.paginaAtual = 1
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false
+    // onSameUrlNavigation => quando estiver navegando na mesma url, acontece tal coisa
+    this.router.onSameUrlNavigation = 'reload'
+    this.router.navigate([this.router.url])
   }
 }

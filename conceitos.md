@@ -33,6 +33,7 @@ imports: [
 ```
 
 # Router
+- serviço qeu fornece recurso de url e navegação entre views
 ```html
 // espaço reservado que angular vai preencher automaticamente
 <router-outlet></router-outlet>
