@@ -32,9 +32,10 @@ export class ListarPensamentoComponent implements OnInit {
   carregarMaisPensamentos() {
     if (this.haMaisPensamentos) {
       this.service.listar(++this.paginaAtual, this.filtro, this.favoritos).subscribe(listaPensamentos => {
-        this.listaPensamentos.push(...listaPensamentos)
-        if (this.listaPensamentos.length) {
+        if (!listaPensamentos.length) {
           this.haMaisPensamentos = false;
+        } else {
+          this.listaPensamentos.push(...listaPensamentos)
         }
       })
     }

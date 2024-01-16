@@ -22,7 +22,6 @@ export class PensamentoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.pensamento.id)
   }
 
   larguraPensamento(): string {

@@ -23,15 +23,24 @@ Um aplicativo desenvolvido em angular para guardar seu trechos de músicas, pens
 
 ## Demonstração
 
-- [Curto video](https://www.loom.com/share/7a935636f1c94d7d9404bcfb4d874121)
+- [Curto video](https://www.loom.com/share/7b17a9ff9ea3463db4ce3295653f8ca3)
 
 ## Funcionalidades
 
-- CRUD Pensamento
+- **C**reate pensamento
+  - criando pensamento usando formularios reativos e validação de dados
+- **R**ead pensamento
+  - buscando um arquivo unico
+  - listando arquivos (todos, somente favoritos ou pela busca)
+  - paginação
+- **U**pdate pensamento
+  - atualizando pensamento usando formularios reativos e validação de dados
+- **D**elete pensamento
+
 
 ## Aprendizados
 Explorado conceitos bases do angular, tais como: 
-- Comunicação entre componentes
+- Comunicação entre componentes e templates
   - Property binding
   - Event binding
   - Two-way data binding
@@ -42,6 +51,7 @@ Explorado conceitos bases do angular, tais como:
 - Observables
 - Estrutura de pastas angular
 - Formulários reativos (ReactiveFormsModule)
+- Validação (Validators)
 
 ## Links
 - [Explicação de conceitos](https://github.com/leolive1506/crud-angular/blob/main/conceitos.md)
